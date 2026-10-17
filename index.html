@@ -1,0 +1,94 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="preload" href="./assets/images/cover.webp" as="image" type="image/webp"><meta name="theme-color" content="#861c29"><meta name="description" content="Undangan digital adat Batak Toba, desain khas ULIDO"><title>Gokhon Dohot Jou-Jou | ULIDO</title><link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/inside.css?v=4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
+</head><body><!-- SISIPKAN INI TEPAT DI BAWAH <body> -->
+<audio id="musikUndangan" loop>
+    <source src="assets/music/Rongkap Sian Tuhan.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung pemutar audio.
+</audio>
+
+<div id="cover-overlay">
+    <h2>UNDANGAN PERNIKAHAN</h2>
+    <h1>Charles & Eva</h1>
+    <p style="margin-bottom: 30px;">Kepada Bapak/Ibu/Saudara/i Kami Mengundang Anda</p>
+    <button class="btn-buka" onclick="bukaUndangan()">Buka Undangan</button>
+</div>
+<main id="cover" class="page-cover is-entering" aria-label="Cover undangan"><img class="artwork" src="./assets/images/cover.webp" fetchpriority="high" decoding="async" width="1395" height="2048" alt="Cover Batak Toba dengan ornamen Gorga"><section class="guest-area" aria-label="Tamu undangan"><div id="guestDisplay" class="guest-name" aria-live="polite">Tamu Undangan</div><button type="button" id="openInvitation" aria-controls="invitation" aria-expanded="false"><span class="button-symbol" aria-hidden="true">✉</span><span>Buka Undangan</span><span class="button-arrow" aria-hidden="true">↗</span></button></section></main>
+<div id="invitation" hidden tabindex="-1">
+<header class="nav"><a class="brand" href="#home">💍 Charles &amp; Eva</a>
+<nav><a href="#mempelai">Mempelai</a><a href="#acara">Acara</a><a href="#galeri">Galeri</a><a href="#rsvp">RSVP</a></nav></header>
+<section id="home" class="hero section"><div class="pattern"></div><div class="hero-content"><div class="eyebrow" id="invTitle">Gokhon Dohot Jou-Jou</div><h1 id="coupleName">Charles <em>&amp;</em> Eva</h1><p>Undangan Pernikahan &amp; Pesta Adat Batak Toba</p><p class="welcome">Horas, <strong id="recipient">Tamu Undangan</strong>!</p><a class="btn outline" href="#mempelai">Lihat Undangan ↓</a></div></section>
+<section id="mempelai" class="section cream">
+  <div class="inner">
+    <p class="eyebrow">Horas Tondi Madingin, Pir Tondi Matogu</p>
+    <h2>Pasangan Berbahagia</h2>
+    <p class="intro" id="intro"></p>
+    <div class="couple-grid">
+      <article class="person">
+        <span class="motif">✥</span>
+        <h3 id="brideName"></h3>
+        <p id="brideParents"></p>
+      </article>
+
+      <div class="amp">&amp;</div>
+
+      <article class="person">
+        <span class="motif">✥</span>
+        <h3 id="groomName"></h3>
+        <p id="groomParents"></p>
+      </article>
+    </div>
+
+    <p class="quote" id="quote"></p>
+  </div>
+
+    <div class="arch-couple-card">
+      <div class="arch-photo-frame">
+        <img
+          src="assets/images/mempelai.jpg"
+          alt="Foto Charles dan Eva"
+          class="arch-photo"
+        >
+
+        <div class="arch-verse">
+          <p class="verse-text">
+            “Berdua lebih baik dari pada seorang diri, karena mereka menerima
+            upah yang baik dalam jerih payah mereka.”
+          </p>
+          <p class="verse-ref">(Pengkhotbah 4 : 9)</p>
+        </div>
+      </div>
+      <div class="ayat-bawah">
+  <p>
+    “Kiranya Engkau sekarang berkenan memberkati keluarga
+    hamba-Mu ini, supaya tetap ada di hadapan-Mu untuk
+    selama-lamanya. Sebab apa yang Engkau berkati, ya TUHAN,
+    diberkati untuk selama-lamanya.”
+  </p>
+  <strong>1 Tawarikh 17:27</strong>
+</div>
+    </div>
+</section>
+<section class="section maroon"><div class="inner"><p class="eyebrow">Menuju Hari Bahagia</p><h2>Hitung Mundur</h2><div class="countdown" aria-label="Hitung mundur acara"><div><strong id="days">00</strong><span>Hari</span></div><div><strong id="hours">00</strong><span>Jam</span></div><div><strong id="minutes">00</strong><span>Menit</span></div><div><strong id="seconds">00</strong><span>Detik</span></div></div></div></section>
+<section id="acara" class="section cream"><div class="inner"><p class="eyebrow">Rangkaian Acara</p><h2>Waktu &amp; Tempat</h2><div id="eventCards" class="event-grid"></div></div></section>
+<section id="galeri" class="section pale"><div class="inner"><p class="eyebrow">Momen Berharga</p><h2>Galeri Kami</h2><div id="gallery" class="gallery"></div></div></section>
+<section id="rsvp" class="section cream"><div class="inner"><p class="eyebrow">Konfirmasi Kehadiran</p><h2>RSVP</h2><p class="intro">Mohon konfirmasikan rencana kehadiran melalui WhatsApp penyelenggara.</p><form id="rsvpForm" class="rsvp-form"><label>Nama tamu<input id="rsvpName" required maxlength="120"></label><label>Rencana kehadiran<select id="attendance"><option value="Hadir">Hadir</option><option value="Belum bisa hadir">Belum bisa hadir</option></select></label><label>Jumlah tamu<input id="party" type="number" min="1" max="20" value="1" required></label><button type="submit" class="btn">Konfirmasi via WhatsApp</button><p class="form-note" id="rsvpStatus">Nomor WhatsApp penyelenggara perlu diisi di config.js agar tombol aktif.</p></form></div></section>
+<section id="giftSection" class="section pale" hidden><div class="inner"><p class="eyebrow">Tanda Kasih</p><h2>Hadiah Digital</h2><p id="giftInfo"></p><button type="button" id="copyAccount" class="btn">Salin Nomor Rekening</button></div></section>
+<nav class="bottom-nav" aria-label="Navigasi cepat"><a href="#home">⌂<span>Beranda</span></a><a href="#mempelai">♡<span>Mempelai</span></a><a href="#acara">▦<span>Acara</span></a><a href="#galeri">▧<span>Galeri</span></a><a href="#rsvp">✉<span>RSVP</span></a></nav><footer class="footer"><h2>Mauliate Godang</h2><p id="closing"></p><p class="foot-brand">Desain oleh ULIDO • Adat Batak Toba</p><button type="button" id="shareInvitation" class="back-button">Bagikan Undangan ↗</button><button type="button" id="backCover" class="back-button">↑ Kembali ke Cover</button></footer>
+</div><script src="config.js"></script><script src="js/script.js"></script>
+<script defer src="js/inside.js?v=4"></script>
+<!-- SISIPKAN INI TEPAT DI ATAS </body_> -->
+<script>
+    function bukaUndangan() {
+        var audio = document.getElementById("musikUndangan");
+        audio.play().catch(function(error) {
+            console.log("Gagal memutar audio:", error);
+        });
+
+        var cover = document.getElementById("cover-overlay");
+        cover.classList.add("fade-out");
+    }
+</script>    
+</body></html>
